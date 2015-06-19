@@ -20,12 +20,18 @@ namespace HelloWorldChallenge
         public void Run()
         {
             this.Challenge_01();
+            this.Challenge_02();
+            Console.ReadLine();
         }
 
         private void Challenge_01()
         {
             Console.WriteLine("Hello World!");
-            Console.ReadLine();
+        }
+
+        private void Challenge_02()
+        {
+            Console.WriteLine("Hello World!\nHello World!");
         }
     }
 }
