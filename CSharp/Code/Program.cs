@@ -11,27 +11,45 @@ namespace HelloWorldChallenge
         static void Main(string[] args)
         {
             var helloWorld = new HelloWorldChallenge();
-            helloWorld.Run();
+            helloWorld.Value = "Hello World!";
+            helloWorld.Challenge_01();
+            helloWorld.Challenge_02();
+            helloWorld.Challenge_03();
+            Console.ReadLine();
         }
     }
 
     public class HelloWorldChallenge
     {
-        public void Run()
+        private string _value = String.Empty;
+
+        public string Value
         {
-            this.Challenge_01();
-            this.Challenge_02();
-            Console.ReadLine();
+            get { return this._value; }
+            set { this._value = value; }
         }
 
-        private void Challenge_01()
+        public void Challenge_01()
         {
-            Console.WriteLine("Hello World!");
+            Console.WriteLine(this._value);
         }
 
-        private void Challenge_02()
+        public void Challenge_02(string value = "")
         {
-            Console.WriteLine("Hello World!\nHello World!");
+            value = String.IsNullOrWhiteSpace(value) ? this._value : value;
+            Console.WriteLine(value + "\n" + value);
+        }
+
+        public void Challenge_03()
+        {
+            Challenge_02(this.Reverse(this._value));
+        }
+
+        private string Reverse(string value)
+        {
+            char[] charArray = value.ToCharArray();
+            Array.Reverse(charArray);
+            return new string(charArray);
         }
     }
 }
